@@ -23,6 +23,9 @@ class Student(models.Model):
     exam_grade = models.DecimalField(max_digits=5, decimal_places=2)
     classroom = models.ForeignKey(Classroom , on_delete = models.CASCADE, related_name='students')
 
+    class Meta:
+        ordering = ('name', '-exam_grade')
+
     def __str__(self):
         return (self.name)
     

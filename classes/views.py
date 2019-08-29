@@ -15,11 +15,8 @@ def classroom_list(request):
 
 def classroom_detail(request, classroom_id):
     classroom = Classroom.objects.get(id=classroom_id)
-    students = classroom.students.all()
-    students = students.order_by('name')
     context = {
         "classroom": classroom,
-        'students' : students,
     }
     return render(request, 'classroom_detail.html', context)
 
